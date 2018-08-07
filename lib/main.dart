@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './taskitem.dart';
-import './tasklist.dart';
+import './task_item.dart';
+import './task_list.dart';
 
 void main() => runApp(new MyApp());
 
@@ -31,10 +31,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _tasks = <Task>[];
 
-  void _incrementCounter() {
-    setState(() {});
-  }
-
   @override
   void initState() {
     super.initState();
@@ -42,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _tasks.add(Task('Finish writing note', false));
     _tasks.add(Task('Check for updates in project', true));
     _tasks.add(Task('Buy a milk', false));
-    _tasks.add(Task('Pay for rent', false));
+    _tasks.add(Task('Pay for rentage', false));
   }
 
   _onClick(Task task) {
@@ -53,25 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
     };
   }
 
-  ListView fakeBody() {
-    return ListView(
-      children: _tasks.map((task) {
-        return ListTile(
-          title: Text(task.text),
-          onTap: _onClick(task),
-          leading: task.isCompleted ?
-            Icon(
-              Icons.check,
-              color: Colors.pink,
-            ) :
-            Checkbox(
-              value: task.isCompleted,
-              onChanged: null,
-            )
-        );
-      }).toList());
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -80,9 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: new Text(widget.title),
       ),
-      body: fakeBody(), //TaskList(_tasks, _onClick),
+      body: TaskList(_tasks, _onClick),
       floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: null,
         tooltip: 'Increment',
         child: new Icon(Icons.add),
       ),

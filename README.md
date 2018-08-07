@@ -2,8 +2,8 @@
 
 A simple app that shows flutter's awesomeness. Create tasks and mark them as being complete or incomplete
 
-![Home Page](./Screenshot_1533644909.png)
-![Add Task](./Screenshot_1533644994.png)
+![Home Page](./Screenshot_1533644909.png =200x400)
+![Add Task](./Screenshot_1533644994.png =200x400)
 
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './task_item.dart';
 import './task_list.dart';
+import './add_task.dart';
 
 void main() => runApp(new MyApp());
 
@@ -41,7 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
     _tasks.add(Task('Pay for rentage', false));
   }
 
-  _onClick(Task task) {
+  void _addTask(String text) {
+    _tasks.add(Task(text, false));
+    Navigator.pop(context);
+  }
+
+  void _openAddTaskPage() {
+    Navigator.push(context,
+      MaterialPageRoute(builder: (context) => AddTaskPage(title: 'Add a New Task', onClick: _addTask)),
+    );
+  }
+
+  Function _onClick(Task task) {
     return () {
       setState(() {
         task.isCompleted = !task.isCompleted;
@@ -59,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: TaskList(_tasks, _onClick),
       floatingActionButton: new FloatingActionButton(
-        onPressed: null,
+        onPressed: _openAddTaskPage,
         tooltip: 'Increment',
         child: new Icon(Icons.add),
       ),

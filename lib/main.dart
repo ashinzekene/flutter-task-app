@@ -70,8 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle _textStyle =
-        TextStyle(fontWeight: FontWeight.w300, fontSize: 25.0, fontStyle: FontStyle.italic);
+    const TextStyle _textStyle = TextStyle(
+        fontWeight: FontWeight.w300,
+        fontSize: 25.0,
+        fontStyle: FontStyle.italic);
 
     return new Scaffold(
       appBar: new AppBar(
@@ -81,8 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _tasks.length == 0
           ? Center(
-              child: Text('You are all done. You can go to rest now...',
-                  style: _textStyle, textAlign: TextAlign.center,),
+              child: Text(
+                'You are all done. You can go to rest now...',
+                style: _textStyle,
+                textAlign: TextAlign.center,
+              ),
             )
           : TaskList(_tasks, _onClick, _remove),
       floatingActionButton: new FloatingActionButton(
